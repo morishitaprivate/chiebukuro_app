@@ -1,24 +1,11 @@
-# README
+# chiebukuro_app
+This is the application like Yahoo!知恵袋
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+実装したい機能
+* ユーザーログイン機能
+* 質問機能（ユーザー全員に公開される）
+* 質問回答機能（1つの質問に対して複数可）
+* 回答に対する返信機能（難しそう）
+* ベストアンサー決定機能
+* 質問に対して「共感した！」ボタン（非同期が望ましい）
+* 回答に対して「なるほど！」ボタン（非同期が望ましい）
