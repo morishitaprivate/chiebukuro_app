@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
   root to: 'home#index'
+  resources :users
+  resources :questions
 end

@@ -11,7 +11,19 @@
 
   <body>
     <header>
-      
+    <h1><%= link_to 'ちえぶくろ', root_path %></h1>
+      <% if flash[:success].present? %>
+        <%= flash[:success] %><br>
+      <% end %>
+      <% if flash[:danger].present? %>
+        <div style="color: red"><%= flash[:danger] %></div>
+      <% end %>
+      <% if logged_in? %>
+        <%= link_to 'ログアウト', logout_path, method: :delete %>
+        <%= link_to '質問する', new_question_path %>
+      <% else %>
+        <%= link_to 'ログイン', login_path %>
+      <% end %>
     </header>
     <%= yield %>
   </body>
