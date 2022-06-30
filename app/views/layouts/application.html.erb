@@ -13,7 +13,7 @@
     <header>
     <h1><%= link_to 'ちえぶくろ', root_path %></h1>
       <% if flash[:success].present? %>
-        <%= flash[:success] %><br>
+        <div style="color: #99E300"><%= flash[:success] %></div>
       <% end %>
       <% if flash[:danger].present? %>
         <div style="color: red"><%= flash[:danger] %></div>

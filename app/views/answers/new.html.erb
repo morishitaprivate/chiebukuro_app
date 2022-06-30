@@ -1,0 +1,18 @@
+<h1>回答する</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for @answer, url:  question_answers_path do |f| %>
+      <% if @answer.errors.any? %>
+        <% @answer.errors.full_messages.each do |msg| %>
+          <div style="color: red"><%= msg %></div>
+        <% end %>
+      <% end %>
+      
+      <%= f.label :body %>
+      <%= f.text_field :body %><br>
+
+      <%= f.submit "回答する", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

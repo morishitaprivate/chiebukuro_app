@@ -1,1 +1,13 @@
-<%= @question.body %>
+<h2>質問者：<%= @question.user.name %>さん</h2>
+<div><%= @question.body %><div>
+質問日時：<%= @question.created_at.to_s(:datetime) %><br>
+<% if logged_in? %>
+  <div><%= link_to '回答する', new_question_answer_path(@question.id) %>
+<% end %>
+
+<h2>回答 <small><%= @answers.count %>件</small></h2>
+<% @answers.each do |answer| %>
+  <h3><%= answer.user.name %>さん</h3>
+  <p>回答日時：<%= answer.created_at.to_s(:datetime) %></p>
+  回答内容：<%= answer.body %>
+<% end %>
