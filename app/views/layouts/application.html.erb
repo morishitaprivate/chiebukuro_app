@@ -9,7 +9,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="text-center">
     <header>
     <h1><%= link_to 'ちえぶくろ', root_path %></h1>
       <% if flash[:success].present? %>
@@ -23,6 +23,7 @@
         <%= link_to '質問する', new_question_path %>
       <% else %>
         <%= link_to 'ログイン', login_path %>
+        <%= link_to 'ユーザー登録はこちらから', new_user_path %>
       <% end %>
     </header>
     <%= yield %>

@@ -7,8 +7,12 @@ class QuestionsController < ApplicationController
   def show
     # 引数を渡したいができなかったためとりあえずこれ
     @question = Question.find(params[:id]) 
-    @answers = @question.answers
+    @answers = @question.answers.order(created_at: 'DESC')
   end 
+  
+  def confirm
+    @question = Question.new(question_params)
+  end
   
   def create
     @question = Question.new(question_params)
@@ -24,6 +28,6 @@ class QuestionsController < ApplicationController
   
   private
     def question_params
-      params.require(:question).permit(:user_id, :body, :supplement)
+      params.require(:question).permit(:body, :supplement)
     end
 end

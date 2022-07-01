@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   resources :questions, only: %i[new create show] do
     resources :answers, only: %i[new create]
   end
+  post 'questions/confirm', to: 'questions#confirm'
 end

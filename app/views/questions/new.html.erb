@@ -2,7 +2,7 @@
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <%= form_for(@question) do |f| %>
+    <%= form_for @question, url: questions_confirm_path do |f| %>
       <% if @question.errors.any? %>
         <% @question.errors.full_messages.each do |msg| %>
           <div style="color: red"><%= msg %></div>
