@@ -9,6 +9,7 @@
           <div class="btn-group">
             <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to '詳細へ', question_path(question.id) %></button>
           </div>
+          いいね<%= question.favorites.count %>件
         </div>
       </div>
     </div>
