@@ -9,14 +9,56 @@
  * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
- *
+ * require_tree .
+ *= require_self
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.form-control {
-  width: 20%;
-  margin: 20px auto;
+.navbar-dark .navbar-nav .active>.nav-link, .navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .nav-link.show, .navbar-dark .navbar-nav .show>.nav-link {
+  color: #fff;
+}
+
+.navbar-dark .navbar-brand {
+  color: #fff;
+}
+
+.navbar-brand {
+  display: inline-block;
+  padding-top: .3125rem;
+  padding-bottom: .3125rem;
+  margin-right: 1rem;
+  line-height: 70px;
+  white-space: nowrap;
+}
+
+.navbar-nav {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding-left: 0;
+  margin-bottom: 0;
+  line-height: 70px;
+  list-style: none;
+  float: right;
+}
+
+.bg-dark {
+  background-color: #343a40!important;
+}
+
+.mr-auto, .mx-auto {
+  margin-right: auto!important;
+}
+
+.form-inline {
+  padding-left: 15px;
+  text-align: left;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .mb-4, .my-4 {
@@ -52,4 +94,28 @@
 
 .text-aligin-left {
   text-align: left;
+}
+
+
+
+@media (min-width: 768px) {
+  .navbar-expand-md .navbar-nav {
+    -ms-flex-direction: row;
+    flex-direction: row;
+  }
+  
+  .navbar-expand-md .navbar-nav .nav-link {
+    padding-right: .5rem;
+    padding-left: .5rem;
+  }
+  
+  .navbar-expand-md .navbar-toggler {
+    display: none;
+  }
+}
+
+@media (min-width: 576px) {
+  .mr-sm-2, .mx-sm-2 {
+    
+  }
 }
