@@ -1,13 +1,15 @@
 <h2>質問者：<%= @question.user.name %>さん</h2>
 <div>質問内容：<%= @question.body %><div><br>
 質問日時：<%= @question.created_at.to_s(:datetime) %>
-<% if @question.favorited?(current_user) %>
-  <%= link_to question_favorites_path(@question.id), method: :delete do %>
-    <span style="color: red">❤︎</span>
-  <% end %>
-<% else %>
-  <%= link_to question_favorites_path(@question.id), method: :post do %>
-    <span>❤︎</span>
+<% if logged_in? %>
+  <% if @question.favorited?(current_user) %>
+    <%= link_to question_favorites_path(@question.id), method: :delete do %>
+      <span style="color: red">❤︎</span>
+    <% end %>
+  <% else %>
+    <%= link_to question_favorites_path(@question.id), method: :post do %>
+      <span>❤︎</span>
+    <% end %>
   <% end %>
 <% end %>
 いいね<%= @favorites.count %>件
