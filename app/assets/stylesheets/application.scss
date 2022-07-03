@@ -15,6 +15,20 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+ul {
+  padding-inline-start: 0px;
+}
+
+#title {
+  float: left;
+  margin-left: 1%;
+  color: white;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
 .navbar-dark .navbar-nav .active>.nav-link, .navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .nav-link.show, .navbar-dark .navbar-nav .show>.nav-link {
   color: #fff;
 }
@@ -28,7 +42,6 @@
   padding-top: .3125rem;
   padding-bottom: .3125rem;
   margin-right: 1rem;
-  line-height: 70px;
   white-space: nowrap;
 }
 
@@ -37,11 +50,19 @@
   display: flex;
   -ms-flex-direction: column;
   flex-direction: column;
-  padding-left: 0;
-  margin-bottom: 0;
-  line-height: 70px;
+  line-height: 100px;
   list-style: none;
-  float: right;
+  float: left;
+  width: 100%;
+}
+
+.nav-second {
+  margin-top: 20px;
+  border-top: 1px solid white;
+}
+
+.search-field {
+  display: inline-flex;
 }
 
 .bg-dark {

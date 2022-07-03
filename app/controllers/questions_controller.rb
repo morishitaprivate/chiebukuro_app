@@ -8,7 +8,6 @@ class QuestionsController < ApplicationController
     # 引数を渡したいができなかったためとりあえずこれ
     @question = Question.find(params[:id]) 
     @answers = @question.answers.order(created_at: 'DESC')
-    @favorites = @question.favorites
   end 
   
   def confirm

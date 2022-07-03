@@ -4,15 +4,15 @@
 <% if logged_in? %>
   <% if @question.favorited?(current_user) %>
     <%= link_to question_favorites_path(@question.id), method: :delete do %>
-      <span style="color: red">❤︎</span>
+      <i class="far fa-heart" style="color: red"></i>
     <% end %>
   <% else %>
     <%= link_to question_favorites_path(@question.id), method: :post do %>
-      <span>❤︎</span>
+      <i class="far fa-heart" style="color: gray"></i>
     <% end %>
   <% end %>
 <% end %>
-いいね<%= @favorites.count %>件
+いいね<%= @question.favorites.count %>件
 <% if logged_in? %>
   <div><%= link_to '回答する', new_question_answers_path(@question.id) %>
 <% else %>
