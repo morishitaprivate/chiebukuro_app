@@ -2,7 +2,7 @@ require 'test_helper'
 
 class AnswersControllerTest < ActionDispatch::IntegrationTest
   test "should get new" do
-    get answers_new_url
+    get new_question_answers_url
     assert_response :success
   end
 
