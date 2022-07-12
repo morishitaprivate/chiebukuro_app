@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   root to: 'home#index'
   resources :users
-  resources :questions, only: %i[new create show] do
-    resource :answers, only: %i[new create]
+  resources :questions, only: %i[new create show destroy] do
+    resource :answers, only: %i[new create destroy]
     resource :favorites, only: %i[create destroy]
   end
   post 'questions/confirm', to: 'questions#confirm'
