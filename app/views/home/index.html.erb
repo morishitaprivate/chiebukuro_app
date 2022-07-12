@@ -1,16 +1,48 @@
-<h2>最近の質問</h2>
-<% @questions.each do |question| %>
-  <div class="col-md-12">
-    <div class="card mb-4 shadow-sm">
-      <svg class="bd-placeholder-img card-img-top" width="100%" height="15vh"><rect width="100%" height="50%" fill="#55595c"></rect><text x="1%" y="25%" fill="#eceeef" dy=".3em"><%= question.user.name %>さん</text></svg>
-      <div class="card-body">
-        <p class="card-text text-aligin-left" style="margin-left: 1%"><%= question.body %></p>
-        <div class="justify-content-between">
-          <div class="btn-group">
-            <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to '詳細へ', question_path(question.id) %></button>
+<div class="left">
+  <div class="col-md-8">
+    <h2>最近の質問</h2>
+    <% @questions.each do |question| %>
+      <div class="col-md-12">
+        <div class="card mb-4 shadow-sm">
+          <svg class="bd-placeholder-img card-img-top" width="100%" height="15vh"><rect width="100%" height="50%" fill="#55595c"></rect><text x="1%" y="25%" fill="#eceeef" dy=".3em"><%= question.user.name %>さん</text></svg>
+          <div class="card-body">
+            <p class="card-text text-aligin-left" style="margin-left: 1%"><%= question.body %></p>
+            <i class="far fa-heart text-aligin-left" style="color: gray; width: 99%"><%= question.favorites.count %></i>
+            <div class="justify-content-between">
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to '詳細へ', question_path(question.id) %></button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    <% end%>
   </div>
-<% end%>
+</div>
+<div class="right">
+  <div class="col-md-4">
+    <%= image_tag 'Unknown.jpeg' %>
+  </div>
+  <div class="col-md-4">
+    <%= image_tag 'Unknown.jpeg' %>
+  </div>
+  <div class="col-md-4">
+    <h3>いいねが多い質問</h3>
+    <% @favorited_questions.first(5).each do |fq| %>
+      <div class="col-md-12">
+        <div class="card mb-4 shadow-sm">
+          <svg class="bd-placeholder-img card-img-top" width="100%" height="15vh"><rect width="100%" height="50%" fill="#55595c"></rect><text x="1%" y="25%" fill="#eceeef" dy=".3em"><%= Question.find(fq.first).user.name %>さん</text></svg>
+          <div class="card-body">
+            <p class="card-text text-aligin-left" style="margin-left: 1%"><%= Question.find(fq.first).body %></p>
+            <i class="far fa-heart text-aligin-left" style="color: gray; width: 99%"><%= Question.find(fq.first).favorites.count %></i>
+            <div class="justify-content-between">
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to '詳細へ', question_path(Question.find(fq.first).id) %></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

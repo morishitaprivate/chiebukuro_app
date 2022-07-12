@@ -1,5 +1,9 @@
 class QuestionsController < ApplicationController
   
+  def index
+    @questions = Question.all.order(id: 'DESC')
+  end
+  
   def new
     @question = Question.new
   end
