@@ -11,5 +11,6 @@ Rails.application.routes.draw do
     resource :answers, only: %i[new create destroy]
     resource :favorites, only: %i[create destroy]
   end
+  resources :mypage, only: %i[index]
   post 'questions/confirm', to: 'questions#confirm'
 end

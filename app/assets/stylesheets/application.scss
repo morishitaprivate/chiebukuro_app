@@ -15,6 +15,20 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+header {
+  background-color: #343a40;
+}
+
+main {
+  width: 80%;
+  margin: auto;
+}
+
+nav {
+  width: 80%;
+  margin: auto;
+}
+
 ul {
   padding-inline-start: 0px;
 }
@@ -58,6 +72,7 @@ a:hover {
 .nav-second {
   margin-top: 20px;
   border-top: 1px solid white;
+  height: 100%;
 }
 
 .search-field {

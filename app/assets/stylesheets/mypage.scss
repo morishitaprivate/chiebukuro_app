@@ -1,0 +1,54 @@
+// Place all the styles related to the mypage controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.row {
+  display: flex;
+}
+
+.mypage-left {
+  width: 65%;
+  .profile-body {
+    display: flex;
+    border-left: 1px solid rgba(128, 128, 128, 0.5);
+    border-right: 1px solid rgba(128, 128, 128, 0.5);
+    border-bottom: 1px solid rgba(128, 128, 128, 0.5);
+    .left {
+      width: 30%;
+    }
+    .right {
+      width: 70%;
+      text-align: left;
+      .key-value1 {
+        display: flex;
+        .key {
+          width: 30%;
+        }
+        .value {
+          width: 70%;
+        }
+      }
+      .key-value2 {
+        display: flex;
+        .key {
+          width: 30%;
+        }
+        .value {
+          width: 70%;
+        }
+      }
+    }
+  }
+}
+
+.mypage-right {
+  width: 35%;
+}
+
+.ClapLv2MyProfile_Chie-MyProfile__Header__2URvS {
+  height: 80px;
+  border-radius: 4px 4px 0 0;
+  background-image: url(https://s.yimg.jp/images/ks/clap/image/profile_background.svg);
+  background-position: 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
