@@ -1,0 +1,54 @@
+<%= stylesheet_link_tag 'mypage', :media => "all" %>
+<h1 style="margin: 5% 0 5% 0"><%= @user.name %>さんのページ</h1>
+<div class="col-md-8 mypage-left">
+  <div class="profile">
+    <div class="ClapLv2MyProfile_Chie-MyProfile__Header__2URvS"></div>
+    <div class="profile-body">
+      <div class="col-md-4 left">
+        <%= image_tag @user.image.url, style: "width: 100%; margin: 10% 0; border-radius: 50%"%>
+      </div>
+      <div class="col-md-8 right">
+        <h4><%= @user.name %>さん</h4><br>
+        <div class="profile-place">プロフィール</div><br>
+        <% if @user.age.present? %>
+          <div class="key-value">
+          <div class="key">年齢：</div>
+          <div class="value"><%= @user.age %>代</div>
+          </div><br>
+        <% end %>
+        <div class="key-value">
+          <div class="key">メール：</div>
+          <div class="value"><%= @user.email %></div>
+        </div><br>
+        <div class="key-value">
+          <div class="key">登録日：</div>
+          <div class="value"><%= @user.created_at.to_s(:date) %></div>
+        </div><br>
+      </div>
+    </div>
+  </div>
+  <div class="list">
+    <div class="question">
+      <h3>質問</h2>
+      <% if @questions.present? %>
+        <% @questions.each do |question| %>
+          <div class="col-md-12">
+            <div class="card mb-4 shadow-sm">
+              <div class="card-body">
+                <p class="card-text text-aligin-left" style="margin: 5% 0 5% 1%"><%= link_to question.body, question_path(question.id) %></p>
+                <i class="far fa-heart text-aligin-left" style="color: gray; width: 99%; margin-left: 1%"><%= question.favorites.count %></i>
+                <p class="text-aligin-left" style="margin-left: 1%"><%= question.created_at.to_s(:datetime) %></p>
+              </div>
+            </div>
+          </div>
+        <% end%>
+      <% else %>
+        質問はありません。
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="col-md-4 mypage-right">
+  <%= image_tag 'Unknown.jpeg', style: "width: 100%" %>
+  <%= image_tag 'Unknown.jpeg', style: "width: 100%" %>
+</div>

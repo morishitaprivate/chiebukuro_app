@@ -6,28 +6,16 @@
 }
 
 .mypage-left {
-  width: 65%;
   .profile-body {
-    display: flex;
+    display: inline-block;
     border-left: 1px solid rgba(128, 128, 128, 0.5);
     border-right: 1px solid rgba(128, 128, 128, 0.5);
     border-bottom: 1px solid rgba(128, 128, 128, 0.5);
     .left {
-      width: 30%;
     }
     .right {
-      width: 70%;
       text-align: left;
-      .key-value1 {
-        display: flex;
-        .key {
-          width: 30%;
-        }
-        .value {
-          width: 70%;
-        }
-      }
-      .key-value2 {
+      .key-value {
         display: flex;
         .key {
           width: 30%;
@@ -41,7 +29,6 @@
 }
 
 .mypage-right {
-  width: 35%;
 }
 
 .ClapLv2MyProfile_Chie-MyProfile__Header__2URvS {

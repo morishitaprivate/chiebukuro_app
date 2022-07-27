@@ -1,0 +1,32 @@
+<% if @user == current_user %>
+  <h1>ユーザー編集</h1>
+
+  <div class="row">
+    <%= form_for(@user) do |f| %>
+      <% if @user.errors.any? %>
+        <% @user.errors.full_messages.each do |msg| %>
+          <div style="color: red"><%= msg %></div>
+        <% end %>
+      <% end %>
+      
+      <h4>名前</h4>
+      <%= f.label :name, class: "sr-only" %>
+      <%= f.text_field :name, class: "form-control", placeholder: "名前" %>
+      
+      <h4>メールアドレス</h4>
+      <%= f.label :email, class: "sr-only" %>
+      <%= f.email_field :email, class: "form-control", placeholder: "メールアドレス" %>
+      
+      <h4>画像</h4>
+      <%- f.label :image, class: "sr-only" %>
+      <%= f.file_field :image, class: "form-control" %>
+    
+      <h4>年齢</h4>
+      <%= f.select :age, {'10代': 10, '20代': 20, '30代': 30, '40代': 40, '50代': 50, '60代': 60}, { include_blank: '選択してください' }, { class: 'form-control' } %>
+
+      <%= f.submit "変更する", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+<% else %>
+  ログインしているユーザーのみ編集できます。
+<% end %>

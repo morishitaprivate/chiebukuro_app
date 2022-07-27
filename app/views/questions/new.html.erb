@@ -1,18 +1,16 @@
 <h1>質問する</h1>
 
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_for @question, url: questions_confirm_path do |f| %>
-      <% if @question.errors.any? %>
-        <% @question.errors.full_messages.each do |msg| %>
-          <div style="color: red"><%= msg %></div>
-        <% end %>
+  <%= form_for @question, url: questions_confirm_path do |f| %>
+    <% if @question.errors.any? %>
+      <% @question.errors.full_messages.each do |msg| %>
+        <div style="color: red"><%= msg %></div>
       <% end %>
-      
-      <%= f.label :body %>
-      <%= f.text_field :body %><br>
-
-      <%= f.submit "質問する", class: "btn btn-primary" %>
     <% end %>
-  </div>
+    
+    <%= f.label :body, class: "sr-only" %>
+    <%= f.text_area :body, class: "form-control", placeholder: "質問内容", style: "width: 80%; height: 30vh" %>
+
+    <%= f.submit "質問する", class: "btn btn-primary" %>
+  <% end %>
 </div>

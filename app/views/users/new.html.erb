@@ -1,27 +1,29 @@
 <h1>ユーザー登録</h1>
 
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_for(@user) do |f| %>
-      <% if @user.errors.any? %>
-        <% @user.errors.full_messages.each do |msg| %>
-          <div style="color: red"><%= msg %></div>
-        <% end %>
+  <%= form_for(@user) do |f| %>
+    <% if @user.errors.any? %>
+      <% @user.errors.full_messages.each do |msg| %>
+        <div style="color: red"><%= msg %></div>
       <% end %>
-      
-      <%= f.label :name, '名前' %>
-      <%= f.text_field :name %><br><br>
-
-      <%= f.label :email, 'メールアドレス' %>
-      <%= f.email_field :email %><br><br>
-
-      <%= f.label :password, 'パスワード' %>
-      <%= f.password_field :password %><br><br>
-
-      <%= f.label :password_confirmation, 'パスワード確認' %>
-      <%= f.password_field :password_confirmation %><br><br>
-
-      <%= f.submit "会員登録", class: "btn btn-primary" %>
     <% end %>
-  </div>
+    <%= f.label :name, class: "sr-only" %>
+    <%= f.text_field :name, class: "form-control", placeholder: "名前" %>
+    
+    <%= f.label :email, class: "sr-only" %>
+    <%= f.email_field :email, class: "form-control", placeholder: "メールアドレス" %>
+    
+    <%= f.label :password, class: "sr-only" %>
+    <%= f.password_field :password, class: "form-control", placeholder: "パスワード" %> 
+    
+    <%= f.label :password_confirmation, class: "sr-only" %>
+    <%= f.password_field :password_confirmation, class: "form-control", placeholder: "パスワード確認" %>
+    
+    <%- f.label :image, class: "sr-only" %>
+    <%= f.file_field :image, class: "form-control" %>
+
+    <%= f.select :age, {'10代': 10, '20代': 20, '30代': 30, '40代': 40, '50代': 50, '60代': 60}, { include_blank: '年代' }, { class: 'form-control' } %>
+        
+    <%= f.submit "登録", class: "btn btn-lg btn-primary btn-block", style: "width: 20%; margin: auto" %>
+  <% end %>
 </div>

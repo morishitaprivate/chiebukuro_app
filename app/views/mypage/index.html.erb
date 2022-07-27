@@ -3,22 +3,27 @@
   あなたはログインしていません。
 <% else %>
   <h1 style="margin: 5% 0 5% 0">マイページ</h1>
-  <div class="row">
-    <div class="mypage-left">
+    <div class="col-md-8 mypage-left">
       <div class="profile">
         <div class="ClapLv2MyProfile_Chie-MyProfile__Header__2URvS"></div>
         <div class="profile-body">
-          <div class="left">
-            <%= image_tag 'Unknown.jpeg', style: "width: 100%"%>
+          <div class="col-md-4 left">
+            <%= image_tag current_user.image.url, style: "width: 100%; margin: 10% 0; border-radius: 50%"%>
           </div>
-          <div class="right">
-            <h4><%= current_user.name %>さん</h4><br>
+          <div class="col-md-8 right">
+            <h4><%= current_user.name %>さん<span style="font-size: 15px"> <%= link_to '編集', edit_user_path(current_user.id) %></span></h4><br>
             <div class="profile-place">プロフィール</div><br>
-            <div class="key-value1">
+            <% if current_user.age.present? %>
+              <div class="key-value">
+              <div class="key">年齢：</div>
+              <div class="value"><%= current_user.age %>代</div>
+              </div><br>
+            <% end %>
+            <div class="key-value">
               <div class="key">メール：</div>
               <div class="value"><%= current_user.email %></div>
             </div><br>
-            <div class="key-value2">
+            <div class="key-value">
               <div class="key">登録日：</div>
               <div class="value"><%= current_user.created_at.to_s(:date) %></div>
             </div><br>
@@ -28,23 +33,42 @@
       <div class="list">
         <div class="question">
           <h3>質問</h2>
-          <% @questions.each do |question| %>
-            <div class="col-md-12">
-              <div class="card mb-4 shadow-sm">
-                <div class="card-body">
-                  <p class="card-text text-aligin-left" style="margin: 5% 0 5% 1%"><%= link_to question.body, question_path(question.id) %></p>
-                  <i class="far fa-heart text-aligin-left" style="color: gray; width: 99%; margin-left: 1%"><%= question.favorites.count %></i>
-                  <p class="text-aligin-left" style="margin-left: 1%"><%= question.created_at.to_s(:datetime) %></p>
+          <% if @questions.present? %>
+            <% @questions.each do |question| %>
+              <div class="col-md-12">
+                <div class="card mb-4 shadow-sm">
+                  <div class="card-body">
+                    <p class="card-text text-aligin-left" style="margin: 5% 0 5% 1%"><%= link_to question.body, question_path(question.id) %></p>
+                    <i class="far fa-heart text-aligin-left" style="color: gray; width: 99%; margin-left: 1%"><%= question.favorites.count %></i>
+                    <p class="text-aligin-left" style="margin-left: 1%"><%= question.created_at.to_s(:datetime) %></p>
+                  </div>
                 </div>
               </div>
-            </div>
-          <% end%>
+            <% end%>
+          <% else %>
+           質問はありません。
+          <% end %>
         </div>
       </div>
     </div>
-    <div class="mypage-right">
+    <div class="col-md-4 mypage-right">
       <%= image_tag 'Unknown.jpeg', style: "width: 100%" %>
       <%= image_tag 'Unknown.jpeg', style: "width: 100%" %>
+      <h3>いいねした質問</h3>
+      <% if @favorite_questions.present? %>
+        <% @favorite_questions.each do |fq| %>
+          <div class="col-md-12">
+            <div class="card mb-4 shadow-sm">
+              <svg class="bd-placeholder-img card-img-top" width="100%" height="10vh"><rect width="100%" height="60%" fill="#55595c"></rect><text x="1%" y="25%" fill="#eceeef" dy=".3em"><%= fq.user.name %>さん</text></svg>
+              <div class="card-body">
+                <p class="card-text text-aligin-left" style="margin-left: 1%"><%= link_to fq.body, question_path(fq) %></p>
+                <i class="far fa-heart text-aligin-left" style="color: gray; width: 99%; margin-left: 1%"><%= fq.favorites.count %></i>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% else %>
+        いいねした質問はありません。
+      <% end %>
     </div>
-  </div>
 <% end %>

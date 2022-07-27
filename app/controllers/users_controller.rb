@@ -2,8 +2,9 @@ class UsersController < ApplicationController
   def index
   end
   
-  def show(id)
-    @user = User.find(id)
+  def show
+    @user = User.find(params[:id])
+    @questions = Question.where(user_id: @user.id)
   end
   
   def new
@@ -22,6 +23,18 @@ class UsersController < ApplicationController
   end
   
   def edit
+    @user = User.find(params[:id])
+  end
+  
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      flash[:success] = '更新が完了しました'
+      redirect_to mypage_index_path
+    else
+      flash[:danger] = '更新に失敗しました'
+      render 'edit'
+    end
   end
   
   def destroy
@@ -31,6 +44,6 @@ class UsersController < ApplicationController
   
     def user_params
       params.require(:user).permit(:name, :email, :password,
-                                   :password_confirmation)
+                                   :password_confirmation, :age, :image)
     end
 end

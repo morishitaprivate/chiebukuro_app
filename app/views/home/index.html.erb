@@ -4,7 +4,13 @@
     <% @questions.each do |question| %>
       <div class="col-md-12">
         <div class="card mb-4 shadow-sm">
-          <svg class="bd-placeholder-img card-img-top" width="100%" height="10vh"><rect width="100%" height="60%" fill="#55595c"></rect><text x="1%" y="25%" fill="#eceeef" dy=".3em"><%= question.user.name %>さん</text></svg>
+          <svg class="bd-placeholder-img card-img-top" width="100%" height="10vh"><rect width="100%" height="60%" fill="#55595c"></rect><text x="1%" y="25%" fill="#eceeef" dy=".3em">
+          <% if question.user == current_user %>
+            <%= link_to question.user.name, mypage_index_path, fill: "white" %>さん
+          <% else %>
+            <%= link_to question.user.name, user_path(question.user.id), fill: "white" %>さん
+          <% end %>
+          </text></svg>
           <div class="card-body">
             <p class="card-text text-aligin-left" style="margin-left: 1%"><%= link_to question.body, question_path(question.id) %></p>
             <i class="far fa-heart text-aligin-left" style="color: gray; width: 99%; margin-left: 1%"><%= question.favorites.count %></i>
