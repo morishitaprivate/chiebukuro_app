@@ -18,6 +18,10 @@ class AnswersController < ApplicationController
     end
   end
   
+  def confirm
+    @answer = Answer.new(answer_params)
+  end
+  
   private
     def answer_params
       params.require(:answer).permit(:body)

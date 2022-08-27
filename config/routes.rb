@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :users
   resources :questions, only: %i[index new create show destroy] do
     resource :answers, only: %i[new create destroy]
+    post 'answers/confirm', to: 'answers#confirm'
     resource :favorites, only: %i[create destroy]
   end
   resources :mypage, only: %i[index]
