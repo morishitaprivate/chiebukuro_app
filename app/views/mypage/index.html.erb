@@ -13,12 +13,14 @@
           <div class="col-md-8 right">
             <h4><%= current_user.name %>さん<span style="font-size: 15px"> <%= link_to '編集', edit_user_path(current_user.id) %></span></h4><br>
             <div class="profile-place">プロフィール</div><br>
-            <% if current_user.age.present? %>
-              <div class="key-value">
+            <div class="key-value">
               <div class="key">年齢：</div>
-              <div class="value"><%= current_user.age %>代</div>
-              </div><br>
-            <% end %>
+              <% if current_user.age.present? %>
+                <div class="value"><%= current_user.age %>代</div>
+              <% else %>
+                <div class="value">未選択</div>
+              <% end %>
+            </div><br>
             <div class="key-value">
               <div class="key">メール：</div>
               <div class="value"><%= current_user.email %></div>

@@ -24,7 +24,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
   
   def default_url
-    "Unknown.jpeg" # ←デフォルト画像に設定したい画像名を記入
+    "user.jpg" # ←デフォルト画像に設定したい画像名を記入
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:

@@ -17,9 +17,11 @@
       <%= f.label :email, class: "sr-only" %>
       <%= f.email_field :email, class: "form-control", placeholder: "メールアドレス" %>
       
+      <!--
       <h4>画像</h4>
       <%- f.label :image, class: "sr-only" %>
       <%= f.file_field :image, class: "form-control" %>
+      -->
     
       <h4>年齢</h4>
       <%= f.select :age, {'10代': 10, '20代': 20, '30代': 30, '40代': 40, '50代': 50, '60代': 60}, { include_blank: '選択してください' }, { class: 'form-control' } %>

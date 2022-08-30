@@ -19,8 +19,10 @@
     <%= f.label :password_confirmation, class: "sr-only" %>
     <%= f.password_field :password_confirmation, class: "form-control", placeholder: "パスワード確認" %>
     
+    <!-- Herokuは画像保存ができないため取り消し
     <%- f.label :image, class: "sr-only" %>
     <%= f.file_field :image, class: "form-control" %>
+    -->
 
     <%= f.select :age, {'10代': 10, '20代': 20, '30代': 30, '40代': 40, '50代': 50, '60代': 60}, { include_blank: '年代' }, { class: 'form-control' } %>
         
