@@ -16,7 +16,12 @@
   <body class="text-center">
     <header>
       <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
-        <h1><%= link_to 'ちえぶくろ', root_path, id: "title" %></h1><br><br>
+        <h1><%= link_to 'ちえぶくろ', root_path, id: "title" %></h1>
+        <ul id="menu-logo">
+          <li class="menu">ー</li>
+          <li class="menu">ー</li>
+          <li class="menu">ー</li>
+        </ul>
         <div class="nav-second">
           <% if flash[:success].present? %>
             <div style="color: #99E300"><%= flash[:success] %></div>
@@ -42,6 +47,28 @@
                 <li class="nav-item active"><%= link_to 'ログアウト', logout_path, method: :delete , class: "nav-link" %></li>
               <% else %>
                 <li class="nav-item active">><%= link_to '質問一覧', questions_path, class: "nav-link" %></li>
+                <li class="nav-item active"><%= link_to 'ログイン', login_path, class: "nav-link" %></li>
+                <li class="nav-item active"><%= link_to 'ユーザー登録はこちらから', new_user_path, class: "nav-link" %></li>
+              <% end %>
+            </div>
+          </ul>
+        </div>
+        <div id="nav-smartphone">
+          <% if flash[:success].present? %>
+            <div style="color: #99E300"><%= flash[:success] %></div>
+          <% end %>
+          <% if flash[:danger].present? %>
+            <div style="color: red"><%= flash[:danger] %></div>
+          <% end %>
+          <ul>
+            <div class="nav-slide">
+              <% if logged_in? %>
+                <li class="nav-item active"><%= link_to "こんにちは！#{current_user.name}さん", mypage_index_path, class: "nav-link" %></li>
+                <li class="nav-item active"><%= link_to '質問する', new_question_path, class: "nav-link" %></li>
+                <li class="nav-item active"><%= link_to '質問一覧', questions_path, class: "nav-link" %></li>
+                <li class="nav-item active"><%= link_to 'ログアウト', logout_path, method: :delete , class: "nav-link" %></li>
+              <% else %>
+                <li class="nav-item active"><%= link_to '質問一覧', questions_path, class: "nav-link" %></li>
                 <li class="nav-item active"><%= link_to 'ログイン', login_path, class: "nav-link" %></li>
                 <li class="nav-item active"><%= link_to 'ユーザー登録はこちらから', new_user_path, class: "nav-link" %></li>
               <% end %>

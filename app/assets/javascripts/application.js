@@ -15,3 +15,15 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
+
+$(function() {
+  $(document).on('click', '#menu-logo', function(){
+    if ($('#nav-smartphone').hasClass('open')) {
+      $('#nav-smartphone').slideUp();
+      $('#nav-smartphone').removeClass('open');
+    } else {
+      $('#nav-smartphone').slideDown();
+      $('#nav-smartphone').addClass('open');
+    }
+  });
+});
