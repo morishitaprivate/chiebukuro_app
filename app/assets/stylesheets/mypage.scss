@@ -13,6 +13,11 @@
     border-bottom: 1px solid rgba(128, 128, 128, 0.5);
     width: 99.7%;
     .left {
+      .profile-image {
+        width: 100%;
+        margin: 10% 0;
+        border-radius: 50%;
+      }
     }
     .right {
       text-align: left;
@@ -40,4 +45,31 @@
   background-position: 50%;
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+@media (max-width: 768px) {
+  .mypage-left {
+    .profile-body {
+      .left {
+        .profile-image {
+          width: 70%;
+          margin: 10% 0;
+          border-radius: 50%;
+        }
+      }
+      .right {
+        text-align: left;
+        .key-value {
+          display: flex;
+          .key {
+            width: 30%;
+          }
+          .value {
+            width: 70%;
+          }
+        }
+      }
+    }
+  }
+  
 }

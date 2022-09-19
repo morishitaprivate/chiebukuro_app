@@ -8,7 +8,7 @@
         <div class="ClapLv2MyProfile_Chie-MyProfile__Header__2URvS"></div>
         <div class="profile-body">
           <div class="col-md-4 left">
-            <%= image_tag current_user.image.url, style: "width: 100%; margin: 10% 0; border-radius: 50%"%>
+            <%= image_tag current_user.image.url, class: "profile-image" %>
           </div>
           <div class="col-md-8 right">
             <h4><%= current_user.name %>さん<span style="font-size: 15px"> <%= link_to '編集', edit_user_path(current_user.id) %></span></h4><br>

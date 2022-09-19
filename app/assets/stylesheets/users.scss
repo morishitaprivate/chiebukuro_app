@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.session-form-control {
+.form-control {
   width: 20%;
   margin: 20px auto;
   display: block;
@@ -27,11 +27,11 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
 }
 
 @media (max-width: 768px) {
-  .session-form-control {
+  .form-control {
     width: 50%;
   }
   
-  input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="button"].btn-block {
+  input[type="submit"], input[type="reset"], input[type="button"] {
     width: 50%;
   }
 }
