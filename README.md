@@ -1,6 +1,9 @@
 # chiebukuro_app
 This is the application like Yahoo!知恵袋
 
+ついに公開しました！！
+URL：https://chiebukuro-app.herokuapp.com/
+
 実装したい機能
 * ユーザーログイン機能
 * 質問機能（ユーザー全員に公開される）
