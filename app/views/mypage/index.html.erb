@@ -22,6 +22,14 @@
               <% end %>
             </div><br>
             <div class="key-value">
+              <div class="key">性別：</div>
+              <% if current_user.sex.present? %>
+                <div class="value"><%= current_user.sex.text %></div>
+              <% else %>
+                <div class="value">未選択</div>
+              <% end %>
+            </div><br>
+            <div class="key-value">
               <div class="key">メール：</div>
               <div class="value"><%= current_user.email %></div>
             </div><br>

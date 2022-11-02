@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_27_152155) do
+ActiveRecord::Schema.define(version: 2022_11_02_084651) do
 
   create_table "answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 2022_07_27_152155) do
     t.datetime "updated_at", null: false
     t.integer "age"
     t.string "image"
+    t.integer "sex"
   end
 
   add_foreign_key "favorites", "questions"

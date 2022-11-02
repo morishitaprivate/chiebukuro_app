@@ -1,0 +1,15 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        name: 名前
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード確認
+        age: 年齢
+        sex: 性別  
+  enumerize:
+    user:
+      sex:
+        male: 男性
+        female: 女性
