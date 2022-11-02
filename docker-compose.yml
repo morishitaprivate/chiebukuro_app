@@ -9,7 +9,14 @@ services:
     ports:
       - '3309:3306'
     volumes:
-      - ./db/mysql/volumes:/var/lib/mysql
+      # - ./db/mysql/volumes:/var/lib/mysql
+      - .:/app:cached
+      - bundle:/usr/local/bundle:cached
+      # 1. exclude volumes
+      - /app/vendor
+      - /app/tmp
+      - /app/log
+      - /app/.git
     
     
   web:
