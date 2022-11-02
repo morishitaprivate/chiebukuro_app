@@ -26,6 +26,8 @@
     -->
 
     <%= f.select :age, {'10代': 10, '20代': 20, '30代': 30, '40代': 40, '50代': 50, '60代': 60}, { include_blank: '年代' }, { class: 'form-control' } %>
+    
+    <%= f.select :sex, User.sex.options , { include_blank: '性別' }, { class: 'form-control' } %>
         
     <%= f.submit "登録", class: "btn btn-lg btn-primary btn-block", style: "margin: auto" %>
   <% end %>
