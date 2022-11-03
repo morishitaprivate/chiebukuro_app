@@ -5,7 +5,13 @@
     <div class="ClapLv2MyProfile_Chie-MyProfile__Header__2URvS"></div>
     <div class="profile-body">
       <div class="col-md-4 left">
-        <%= image_tag @user.image.url, style: "width: 100%; margin: 10% 0; border-radius: 50%"%>
+        <% if !@user.sex.present? %>
+          <%= image_tag 'user.jpg', style: "width: 100%; margin: 10% 0; border-radius: 50%" %>
+        <%  elsif @user.sex.male? %>
+          <%= image_tag 'male.jpeg', style: "width: 100%; margin: 10% 0; border-radius: 50%"%>
+        <% else %>
+          <%= image_tag 'female.png', style: "width: 100%; margin: 10% 0; border-radius: 50%"%>
+        <% end %>
       </div>
       <div class="col-md-8 right">
         <h4><%= @user.name %>さん</h4><br>

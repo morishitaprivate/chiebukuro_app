@@ -26,6 +26,9 @@
     
       <h4>年齢</h4>
       <%= f.select :age, {'10代': 10, '20代': 20, '30代': 30, '40代': 40, '50代': 50, '60代': 60}, { include_blank: '選択してください' }, { class: 'form-control' } %>
+      
+      <h4>性別</h4>
+      <%= f.select :sex, User.sex.options , { include_blank: '性別' }, { class: 'form-control' } %>
 
       <%= f.submit "変更する", class: "btn btn-primary" %>
     <% end %>
