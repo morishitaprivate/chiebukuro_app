@@ -17,6 +17,11 @@
 
 header {
   background-color: #343a40;
+  padding-bottom: 50px;
+  
+  a {
+    color: white;
+  }
 }
 
 a {
@@ -110,6 +115,7 @@ a:hover {
   display: flex;
   position: absolute;
   right: 1%;
+  padding-top: 20px;
 }
 
 .bg-dark {
@@ -135,6 +141,10 @@ a:hover {
   
 .shadow-sm {
   box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
+}
+
+.nav-item {
+  margin-right: 10px;
 }
 
 .card {
@@ -191,6 +201,10 @@ a:hover {
 
 
 @media (max-width: 768px) {
+  
+  header {
+    padding-bottom: 0;
+  }
   
   #menu-logo {
     padding-top: 10px;
