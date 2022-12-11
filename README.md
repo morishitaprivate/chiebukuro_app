@@ -2,6 +2,7 @@
 This is the application like Yahoo!知恵袋
 
 ついに公開しました！！
+(2022/12/11現在、herokuの有料化によりアクセスできない状態になっております...)
 URL：https://chiebukuro-app.herokuapp.com/
 
 実装したい機能
